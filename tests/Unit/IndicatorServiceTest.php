@@ -21,7 +21,7 @@ class IndicatorServiceTest extends TestCase
     {
         $id = $this->service->string();
 
-        $this->assertEquals(1, preg_match('/^[A-Za-z]*$/', $id));
+        $this->assertEquals(1, preg_match('/^[A-Za-z]+$/', $id));
         $this->assertEquals(8, strlen($id));
     }
 
@@ -30,7 +30,7 @@ class IndicatorServiceTest extends TestCase
     {
         $id = $this->service->number();
 
-        $this->assertEquals(1, preg_match('/^[0-9]*$/', $id));
+        $this->assertEquals(1, preg_match('/^[0-9]+$/', $id));
         $this->assertEquals(8, strlen($id));
     }
 
@@ -39,7 +39,7 @@ class IndicatorServiceTest extends TestCase
     {
         $id = $this->service->alphanumeric();
 
-        $this->assertEquals(1, preg_match('/^[A-Za-z0-9]*$/', $id));
+        $this->assertEquals(1, preg_match('/^[A-Za-z0-9]+$/', $id));
         $this->assertEquals(8, strlen($id));
     }
 
