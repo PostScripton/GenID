@@ -58,7 +58,14 @@ class IndicatorService
 
     public function alphanumeric(int $length = 8): string
     {
-        return $this->randomizeString($this->getLetters() . $this->getDigits(), $length);
+        $result = '';
+
+        // In case we don't get both letters and digits
+        while (preg_match('/\d+[A-Za-z0-9]*/', $result) === 0) {
+            $result = $this->randomizeString($this->getLetters() . $this->getDigits(), $length);
+        }
+
+        return $result;
     }
 
     private function randomizeString(string $string, int $length): string
@@ -67,7 +74,7 @@ class IndicatorService
 
         while (($len = strlen($result)) < $length) {
             $size = $length - $len;
-            $result .= substr($string, 0, $size);
+            $result .= substr(str_shuffle($string), 0, $size);
         }
 
         return str_shuffle($result);
