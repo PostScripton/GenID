@@ -27,6 +27,7 @@ class IndicatorManagementTest extends TestCase
 
         $response->assertStatus(400);
         $response->assertJsonValidationErrors('type');
+        $this->assertCount(0, Indicator::all());
     }
 
     /** @test */
@@ -36,6 +37,7 @@ class IndicatorManagementTest extends TestCase
 
         $response->assertStatus(400);
         $response->assertJsonValidationErrors('length');
+        $this->assertCount(0, Indicator::all());
     }
 
     /** @test */
@@ -45,6 +47,7 @@ class IndicatorManagementTest extends TestCase
 
         $response->assertStatus(400);
         $response->assertJsonValidationErrors('length');
+        $this->assertCount(0, Indicator::all());
     }
 
     /** @test */
@@ -54,6 +57,7 @@ class IndicatorManagementTest extends TestCase
 
         $response->assertStatus(400);
         $response->assertJsonValidationErrors('type');
+        $this->assertCount(0, Indicator::all());
     }
 
     /** @test */
