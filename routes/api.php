@@ -13,14 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([
-    'prefix' => 'indicators',
-    'as' => 'indicators',
-], function () {
-    Route::get('{id}', 'IndicatorsController@show')
+Route::prefix('indicators')->group(function () {
+    Route::get('{id}', 'Api\IndicatorsController@show')
         ->where('id', '[0-9]+');
 
-    Route::post('/', 'IndicatorsController@store');
+    Route::post('/', 'Api\IndicatorsController@store');
 });
 
 Route::fallback(function () {
